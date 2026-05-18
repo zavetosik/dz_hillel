@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .weather-card {
+            width: 360px;
+            padding: 30px;
+
+            border-radius: 24px;
+
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .weather-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .weather-title h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .weather-title p {
+            opacity: 0.9;
+            text-transform: capitalize;
+        }
+
+        .temperature {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .temperature .main-temp {
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        .temperature .feels-like {
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .weather-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-block {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 15px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .info-block .label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 6px;
+        }
+
+        .info-block .value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="weather-card">
+
+        <div class="weather-title">
+            <h1>{{ weather_main }}</h1>
+            <p>{{ weather_description }}</p>
+        </div>
+
+        <div class="temperature">
+            <div class="main-temp">
+                {{ temperature }}°C
+            </div>
+
+            <div class="feels-like">
+                Відчувається як {{ temperature_like }}°C
+            </div>
+        </div>
+
+        <div class="weather-info">
+
+            <div class="info-block">
+                <div class="label">Вітер</div>
+                <div class="value">
+                    {{ wind_speed }} м/с
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="label">Погода</div>
+                <div class="value">
+                    {{ weather_main }}
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
