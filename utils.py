@@ -91,7 +91,7 @@ def send_email(
 def create_weather_report(data: dict) -> str:
     template_loader = jinja2.FileSystemLoader(searchpath="./")
     template_env = jinja2.Environment(loader=template_loader)
-    template_file = "templates/weather.html"
+    template_file = "weather.html"
     template = template_env.get_template(template_file)
     output = template.render(data)
     return output
